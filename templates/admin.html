@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin Meknès</title>
+<style>
+body{font-family:Arial;background:#f0f7f0;padding:15px;margin:0}
+.box{background:white;padding:20px;border-radius:20px;max-width:500px;margin:auto;box-shadow:0 5px 20px #0001}
+input,select{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1px solid #ddd;font-size:16px;box-sizing:border-box}
+button.main{width:100%;padding:16px;background:#0a7a42;color:white;border:none;border-radius:12px;font-weight:bold;font-size:17px;margin-top:15px}
+.card{background:white;padding:12px;border-radius:15px;margin:10px 0;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px #0001}
+.card img{width:70px;height:70px;object-fit:cover;border-radius:10px}
+.gallery-btn{border:2px dashed #0a7a42;padding:25px;border-radius:15px;text-align:center;background:#f8fdf8;cursor:pointer}
+.gallery-btn input{display:none}
+.gallery-btn label{font-weight:bold;color:#0a7a42;font-size:16px;cursor:pointer}
+</style>
+</head><body>
+<div class="box">
+<h2 style="text-align:center;margin:0 0 15px">➕ Zidi Produit Jdid</h2>
+<form method="POST" enctype="multipart/form-data">
+<input name="nom" placeholder="Smit produit ex: Savon Papaya" required>
+<input name="prix" type="number" placeholder="Taman ex: 45" required>
+<select name="cat"><option value="visage">Visage</option><option value="cheveux">Cheveux</option><option value="vitamines">Vitamines</option><option value="corps">Corps</option></select>
+
+<div class="gallery-btn">
+<label for="photo">📸 Clicki hna bach tkhtari taswira<br><span style="font-size:13px;color:#666;font-weight:normal">Ghadi t7el lik Gallery dyal telephone nichan</span></label>
+<input type="file" id="photo" name="photo" accept="image/*" required onchange="document.getElementById('file-name').innerText=this.files[0].name">
+<p id="file-name" style="color:#0a7a42;font-weight:bold;margin-top:10px"></p>
+</div>
+
+<button class="main" type="submit">✅ Zid f Site daba</button>
+</form>
+</div>
+
+<h3 style="text-align:center;margin-top:30px">📦 {{ produits|length }} Produits f site</h3>
+<div style="max-width:500px;margin:auto">
+{% for p in produits %}
+<div class="card"><img src="{{ p.img }}"><div style="flex:1"><b>{{ p.nom }}</b><br>{{ p.prix }} DH</div><a href="/admin?del={{ p.id }}" style="color:red;text-decoration:none;font-weight:bold;font-size:20px">X</a></div>
+{% endfor %}
+</div>
+<br><a href="/" style="display:block;text-align:center;background:#111;color:white;padding:14px;border-radius:12px;text-decoration:none;max-width:500px;margin:auto">👀 Chouf Site Dyalk</a>
+</body></html>

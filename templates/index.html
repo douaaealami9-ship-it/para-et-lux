@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Douaa - Beauté & Santé</title>
+<link rel="stylesheet" href="/static/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head><body>
+
+<header>
+  <div class="logo">Para Douaa 🌿</div>
+  <a href="https://wa.me/212600000000" class="wa-btn">WhatsApp</a>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <span class="badge">Nouveauté 2026</span>
+    <h1>Votre beauté,<br>notre priorité.</h1>
+    <p>Produits parapharmacie 100% originaux. Livraison express Temara, Rabat, Casa et partout au Maroc.</p>
+    <a href="#categories" class="btn-hero">Découvrir les produits ↓</a>
+  </div>
+  <div class="hero-img"><img src="https://images.unsplash.com/photo-1556228578-8c89d7d8b2a1?w=600"></div>
+</section>
+
+<div class="arrow-down"><a href="#categories">↓</a></div>
+
+<section id="categories" class="cats">
+  <h2>Nos Catégories</h2>
+  <div class="cat-grid">
+    <button class="cat-card active" data-cat="all">✨ Tout</button>
+    <button class="cat-card" data-cat="visage">💧 Visage</button>
+    <button class="cat-card" data-cat="cheveux">💇‍♀️ Cheveux</button>
+    <button class="cat-card" data-cat="vitamines">💊 Vitamines</button>
+    <button class="cat-card" data-cat="bebe">👶 Bébé</button>
+  </div>
+</section>
+
+<section class="products" id="produits">
+  {% for p in produits %}
+  <div class="prod" data-cat="{{ p.cat }}">
+    <img src="{{ p.img }}"><div class="info">
+    <span class="tag">{{ p.cat }}</span>
+    <h3>{{ p.nom }}</h3>
+    <div class="bottom"><b>{{ p.prix }} DH</b><a href="https://wa.me/212600000000?text=Salam bghit {{ p.nom }} - {{ p.prix }} DH">Commander</a></div>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<footer>© Para Douaa - Temara | Paiement à la livraison</footer>
+
+<script>
+const btns=document.querySelectorAll('.cat-card');
+const prods=document.querySelectorAll('.prod');
+btns.forEach(b=>{
+  b.addEventListener('click',()=>{
+    btns.forEach(x=>x.classList.remove('active')); b.classList.add('active');
+    let c=b.dataset.cat;
+    prods.forEach(p=>{ p.style.display=(c=='all'||p.dataset.cat==c)?'block':'none'; })
+  })
+})
+</script>
+</body></html>

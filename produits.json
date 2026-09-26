@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nom": "Sérum Vitamine C",
+    "prix": 149,
+    "cat": "visage",
+    "img": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500"
+  },
+  {
+    "id": 2,
+    "nom": "Collagène Marin",
+    "prix": 250,
+    "cat": "vitamines",
+    "img": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+  },
+  {
+    "id": 3,
+    "nom": "Savon papaya",
+    "prix": 35,
+    "cat": "visage",
+    "img": "/static/uploads/1790021506_6cf080bf-078e-438d-8087-6196ea1158bc.webp"
+  },
+  {
+    "id": 4,
+    "nom": "Savon papaya",
+    "prix": 35,
+    "cat": "visage",
+    "img": "/static/uploads/1790021574_6cf080bf-078e-438d-8087-6196ea1158bc.webp"
+  }
+]
